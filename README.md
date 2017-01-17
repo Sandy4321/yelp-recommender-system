@@ -24,5 +24,6 @@ Another clustering can be by checking the attributes of a business. For restaura
 - ipython, or preferably, latest Anaconda with Python 3
 
 # Usage:
-Clone, extract datasets in folder yelp_dataset
+Clone, extract datasets in a subdirectory yelp_dataset
+
 A docker file is not included, as the task is not complete
