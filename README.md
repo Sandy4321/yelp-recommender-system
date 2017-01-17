@@ -27,3 +27,21 @@ Another clustering can be by checking the attributes of a business. For restaura
 Clone, extract datasets in a subdirectory yelp_dataset
 
 A docker file is not included, as the task is not complete
+
+# Update 17/01/2017 (1):
+found a way to store large data using scipy sparse matrices:
+```
+from scipy.sparse import csr_matrix
+
+users = list(sorted(rev_biz_usr.user_id.unique()))
+businesses = list(sorted(rev_biz_usr.business_id.unique()))
+
+stars = rev_biz_usr['stars_x'].tolist()
+row = rev_biz_usr.user_id.astype('category', categories=users).cat.codes
+col = rev_biz_usr.business_id.astype('category', categories=businesses).cat.codes
+sparse_matrix = csr_matrix((stars, (row, col)), shape=(len(users), len(businesses)))
+```
+# Update 17/01/2017 (2):
+Another approach to handling data for the recommender system:
+- drop all users and businesses with review counts less than 20
+- drop all businesses where the total nmuber of business per state is less than 20
