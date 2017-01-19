@@ -45,3 +45,7 @@ sparse_matrix = csr_matrix((stars, (row, col)), shape=(len(users), len(businesse
 Another approach to handling data for the recommender system:
 - drop all users and businesses with review counts less than 20
 - drop all businesses where the total nmuber of business per state is less than 20
+
+# Update 18/01/2017:
+- Managed to find redundant data in the dataset, that made it possible to fit and do the operations needed within my local PC.
+- Next, implement the recommender system from scratch, using minimal packages
