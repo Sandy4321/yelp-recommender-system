@@ -17,6 +17,23 @@ Also, this recommendation system only reocmmend businesses within states that th
 - ipython, or preferably, latest Anaconda with Python 3
 
 # Usage:
-Clone, extract datasets in a subdirectory yelp_dataset
+1) Clone reposity
+2) Extract the dataset json files in the subdirectory yelp_dataset
+3) Open/run the recommender system.ipynb notebook
 
-A docker file will be added to simplify setup
+# A Dockerfile is included in the repo, and here is how it can be used:
+
+1) Clone reposity
+2) Extract the dataset json files in the subdirectory yelp_dataset
+3) Run the following commands,
+```
+cd nyker
+docker build -t yelp
+docker run -v `pwd`/.:/nyker -p 8888:8888 -it yelp
+# then from within the docker container:
+cd nyker
+jupyter notebook --ip=0.0.0.0
+# the --ip=0.0.0.0 might be needed if running on linux guest in virtualbox
+```
+4) open your browser to localhost:8888
+5) open the "recommender system.ipynb" notebook, and follow along.
